@@ -1,2 +1,16 @@
 {% extends "shopping/base.html" %}
 {% load static %}
+{% block mainbody %}
+
+
+{% for phone in 所有商品 %}
+    {{ phone.name }}
+    <br>
+    {{ phone.desc }}
+    <br>
+    {{ phone.picture.url }}
+    <br>
+{% endfor %}
+
+
+{% endblock mainbody%}
