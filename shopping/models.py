@@ -8,6 +8,7 @@ class Category(models.Model):
     picture = models.ImageField(upload_to ="category",blank = True)
     class Meta:
         verbose_name = "商品类别表"
+        verbose_name_plural = verbose_name
         db_table = "商品类别表"
     def __str__(self):
         return self.name
@@ -15,7 +16,7 @@ class Category(models.Model):
     def __unicode__(self):
         return self.name
 
-class products(models.Model):
+class Products(models.Model):
     name = models.CharField(max_length=100,unique = True)
     desc = models.TextField()
     picture = models.ImageField(upload_to ="category",blank = True)
@@ -27,7 +28,10 @@ class products(models.Model):
     Modtime = models.DateTimeField(auto_now_add=True)
     class Meta:
         verbose_name = "商品列表"
+        verbose_name_plural = verbose_name
+
         db_table = "商品列表"
+        ordering = ('Createtime',)
     def __str__(self):
         return self.name
 
