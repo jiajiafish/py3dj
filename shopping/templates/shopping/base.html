@@ -3,9 +3,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>小米商城官方网站</title>
+    <meta name = "keywords" content="{% block keywords %} 小米8，小米，小米mix 2s，{% endblock keywords %}" >
+    <meta name = "description" content="{% block descript %} 小米8，小米，小米mix 2s，{% endblock descript %}" >
+    <title>{% block title %}这是小米手机商城页面的克隆{% endblock title%}</title>
 </head>
 <body>
+{% include "shopping/header.html" %}
+{% include "shopping/nav.html" %}
+<main>
+    {% block mainbody%}
+         这是网页的主题部分
+    {% endblock mainbody%}
+</main>
 
+{% include "shopping/footer.html" %}
 </body>
 </html>
