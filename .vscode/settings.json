@@ -1,0 +1,5 @@
+{
+    "python.pythonPath": "/home/digital/.virtualenvs/env1/bin/",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
+}
