@@ -1,5 +1,8 @@
 from .models import Products,Category
 from django.contrib import admin
+admin.site.site_header = "小米官方网站"
+
+admin.site.site_title = "小米官方后台"
 
 
 
