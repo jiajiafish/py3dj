@@ -58,9 +58,9 @@
     {% for item in 所有类别 %}
         <div class="p1">
             <div class="p11">
-                <a href="site_url">
-                    <img src="img/car.JPG" class="p-img">
-                    <h4 class="description">Golden Image</h4>
+                <a href="{{ item.site_url }}">
+                    <img src="{{ item.picture.url }}" class="p-img">
+                    <h4 class="description">{{ item.eng_name }}</h4>
                 </a>
 
             </div>
