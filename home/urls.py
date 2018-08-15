@@ -9,6 +9,7 @@ urlpatterns = [
     path('3/', views.pg3, name="主页"),
     path('4/', views.pg4, name="主页"),
     path('5/', views.pg5, name="主页"),
+    path('add/', views.pg5, name="主页"),
 
     path('', views.homepage, name="主页"),
 ]
