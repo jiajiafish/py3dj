@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>数字化平台</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css"/>
+    <!-- <script src="main.js"></script> -->
+</head>
+
+<body>
+<div class="header">
+    <div class="head-left">
+        <div class="header-class">
+            <img src="img/DESlogo(white).png" class="logo">
+        </div>
+    </div>
+    <div class="head-left1">
+        <div class="header-class">
+            <h5>Inbox</h5>
+        </div>
+    </div>
+    <div class="head-left2">
+        <div class="header-class">
+            <h5>My Tasks</h5>
+        </div>
+    </div>
+    <div class="head-middle"></div>
+    <div class="head-right-arrow1">
+        <div class="header-class">
+            <img src="img/backward.png" class="arrow">
+        </div>
+    </div>
+    <div class="head-right-arrow2">
+        <div class="header-class">
+            <img src="img/forward.png" class="arrow">
+        </div>
+    </div>
+    <div class="head-right-search"></div>
+    <div class="head-right-plus"></div>
+    <div class="head-right-account"></div>
+</div>
+
+<div class="container">
+    <div class="list-name">
+        <h1>{% block title %}
+            undefine
+        {% endblock %}</h1>
+        <h2>{% block eng_name %}
+            undefine
+        {% endblock %}</h2>
+    </div>
+    <div class="p-name">
+        <h3></h3>
+    </div>
+    {% for item in 所有类别 %}
+        <div class="p1">
+            <div class="p11">
+                <a href="site_url">
+                    <img src="img/car.JPG" class="p-img">
+                    <h4 class="description">Golden Image</h4>
+                </a>
+
+            </div>
+        </div>
+    {% endfor %}
+
+
+
+
+
+
+
+    <div class="footer"></div>
+
+</div>
+</body>
+
+</html>

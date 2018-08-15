@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/css/main.css">
+    <title>Document</title>
+</head>
+<body style="background-image: url(../../static/images/背景1.jpg)">
+<div class="text-center" style="margin-top: 80px;">
+    <img class="patac-logo" src="../../static/images/pagelogo.png" alt="" style="height: 60px;">
+    <h1 style="color: #f0f8ff;margin-bottom: 100px;font-size: 28px;">设计部数字化平台</h1></div>
+
+
+<HR width="80%" class="top-bar my-5" color=#999999 SIZE=10/>
+
+<div class="container-fluid main-body">
+    <div class="row">
+        <div class="col-sm-1">
+
+        </div>
+
+
+
+        {% for item in 所有类别 %}
+            <div class="col-sm-2">
+                <a class="six-img" href="{{ item.site_url }}"
+                   style="background-image:url({{item.picture.url}});max-width: 100%;display: block;background-repeat: no-repeat;height: 180px;">
+                    <div class="text-center" style="padding-top: 23%;font-size: 25px;">{{ item.name }}</div>
+                    <p class="text-center" style="padding-top: 0px;font-size: 15px;">{{ item.eng_name }}</p>
+
+                </a>
+            </div>
+        {% endfor %}
+
+
+        <div class="col-sm-1">
+
+        </div>
+
+
+    </div>
+</div>
+<HR width="80%" class="bottom-bar my-5" color=#999999 SIZE=10/>
+<footer>
+
+    <div class="text-center">
+        <a href="#" class="patac-foot">设计部数字化平台</a> | <a href="#" class="patac-foot">建议</a> | <a href="#" class="patac-foot">关于</a> | <a href="/admin/" class="patac-foot">后台</a>
+    </div>
+
+
+</footer>
+
+
+<script src="../../static/js/jquery.slim.min.js"></script>
+<script src="../../static/js/popper.min.js"></script>
+<script src="../../static/js/bootstrap.min.js"></script>
+
+
+<script>
+    $(function () {
+        'use strict';
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
+</body>
+</html>

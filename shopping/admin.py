@@ -19,5 +19,5 @@ class CategoryAdmin(admin.ModelAdmin):
     list_editable = ['desc']
 
 # Register your models here.
-admin.site.register(Products,ProductAdmin)
-admin.site.register(Category)
+# admin.site.register(Products,ProductAdmin)
+# admin.site.register(Category)
