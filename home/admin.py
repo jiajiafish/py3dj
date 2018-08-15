@@ -10,8 +10,8 @@ admin.site.site_title = "数字化平台后台"
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['id','name','picture','category','Createtime','Modtime','eng_name']
-    list_editable = ['category','name','picture','eng_name']
+    list_display = ['id','name','eng_name','picture','category','Createtime','Modtime','site_url']
+    list_editable = ['category','picture','site_url']
     list_per_page = 10
     # save_as = True
     list_filter = ['category']
