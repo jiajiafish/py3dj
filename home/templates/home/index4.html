@@ -26,13 +26,19 @@
 
 
         {% for item in 所有类别 %}
-            <div class="col-sm-2">
-                <a class="six-img" href="{{ item.site_url }}"
-                   style="background-image:url({{item.picture.url}});max-width: 100%;display: block;background-repeat: no-repeat;height: 180px;">
-                    <div class="text-center" style="padding-top: 23%;font-size: 25px;">{{ item.name }}</div>
-                    <p class="text-center" style="padding-top: 0px;font-size: 15px;">{{ item.eng_name }}</p>
-
-                </a>
+{#            <div class="col-sm-2">#}
+{#                <a class="six-img" href="{{ item.site_url }}"#}
+{#                   style="background-image:url({{ item.picture.url }});max-width: 100%;display: block;background-repeat: no-repeat;height: 180px;">#}
+{#                    <div class="text-center" style="padding-top: 23%;font-size: 25px;">{{ item.name }}</div>#}
+{#                    <p class="text-center" style="padding-top: 0px;font-size: 15px;">{{ item.eng_name }}</p>#}
+{##}
+{#                </a>#}
+{#            </div>#}
+            <div class="container-fluid card mycard" style="width: 18rem;">
+                <img class="card-img-top" src="{{ item.picture.url }}" alt="Card image cap" style="padding-left: 0px;padding-right: 0px;">
+                <div class="card-body text-center">
+                    <p class="card-text">{{ item.name }}</p>
+                </div>
             </div>
         {% endfor %}
 
@@ -48,7 +54,9 @@
 <footer>
 
     <div class="text-center">
-        <a href="#" class="patac-foot">设计部数字化平台</a> | <a href="#" class="patac-foot">建议</a> | <a href="#" class="patac-foot">关于</a> | <a href="/admin/" class="patac-foot">后台</a>
+        <a href="#" class="patac-foot">设计部数字化平台</a> | <a href="#" class="patac-foot">建议</a> | <a href="#"
+                                                                                                 class="patac-foot">关于</a>
+        | <a href="/admin/" class="patac-foot">后台</a>
     </div>
 
 
