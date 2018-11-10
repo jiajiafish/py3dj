@@ -2,26 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="419677ff-4eb6-40c2-928c-3596c9416d60" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/basetest/urls.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/django_extra/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home/static/css/main2.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/snippets/serializers.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/snippets/urls.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/forms.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/templates/tools/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/urls.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopping/templates/shopping/detail.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/36b0333b-4f5a-4d10-852d-96c3065d4b7b.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/36b0333b-4f5a-4d10-852d-96c3065d4b7b.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/basetest/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/basetest/admin.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/basetest/apps.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/basetest/migrations/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/basetest/models.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/basetest/tests.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/basetest/views.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/snippets/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/snippets/admin.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/snippets/apps.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/snippets/migrations/0001_initial.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/snippets/migrations/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/snippets/models.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/snippets/tests.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/snippets/views.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/admin.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/apps.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/migrations/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/models.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/tests.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/djangopy3/settings.py" afterPath="$PROJECT_DIR$/djangopy3/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/djangopy3/urls.py" afterPath="$PROJECT_DIR$/djangopy3/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/home/models.py" afterPath="$PROJECT_DIR$/home/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/home/shell_test.ipynb" afterPath="$PROJECT_DIR$/home/shell_test.ipynb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/home/static/css/main.css" afterPath="$PROJECT_DIR$/home/static/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/home/templates/home/index4.html" afterPath="$PROJECT_DIR$/home/templates/home/index4.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/home/urls.py" afterPath="$PROJECT_DIR$/home/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/home/views.py" afterPath="$PROJECT_DIR$/home/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -95,8 +99,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/home/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="34" column="15" lean-forward="true" selection-start-line="34" selection-start-column="15" selection-end-line="34" selection-end-column="15" />
+            <state relative-caret-position="25">
+              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -518,7 +522,14 @@
       <option name="project" value="LOCAL" />
       <updated>1534149111176</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="准备开始魔改成ADL平台">
+      <created>1541824591488</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1541824591488</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -592,7 +603,8 @@
     <MESSAGE value="增加时区和语言等等" />
     <MESSAGE value="后端完成" />
     <MESSAGE value="增加了产品类别和产品列表" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加了产品类别和产品列表" />
+    <MESSAGE value="准备开始魔改成ADL平台" />
+    <option name="LAST_COMMIT_MESSAGE" value="准备开始魔改成ADL平台" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -945,8 +957,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/home/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="34" column="15" lean-forward="true" selection-start-line="34" selection-start-column="15" selection-end-line="34" selection-end-column="15" />
+        <state relative-caret-position="25">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
