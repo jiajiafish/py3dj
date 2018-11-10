@@ -45,10 +45,10 @@ router.register(r'users', UserViewSet)
 urlpatterns = [
                   path('admin/', admin.site.urls),
                   path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-                  path('shopping/', include('shopping.urls')),
-                  path('basetest/', include('basetest.urls')),
-                  path('tools/', include('tools.urls')),
+                  # path('shopping/', include('shopping.urls')),
+                  # path('basetest/', include('basetest.urls')),
+                  # path('tools/', include('tools.urls')),
 
-                  path('home/', include('home.urls')),
-                  path('', include('snippets.urls')),
+                  path('', include('home.urls')),
+                  # path('', include('snippets.urls')),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

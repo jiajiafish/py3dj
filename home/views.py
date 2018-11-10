@@ -1,12 +1,16 @@
 from django.http import HttpResponse
+import json
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 from django.shortcuts import render,get_object_or_404,render_to_response
-from .models import Products,Category
+from .models import Products,Category,Adl_Item
 from django.views.generic import ListView,DetailView
 # Create your views here.
 def homepage(request):
-    content = {'所有类别': Category.objects.all()}
-    return  render(request,'home/index4.html',content)
+    content = {'所有类别': Adl_Item.objects.all()}
+    # return  render(request,'home/index4.html',content)
+
+    return  render(request, 'home/index.html', content)
 
 
 def pg1(request):
@@ -42,6 +46,19 @@ class Homedetail(DetailView):
 
 
 
+@csrf_exempt
+def post_getdata(request):
+    if request.method == 'POST':
+        ret={'code':'200'}
+        ret['message']=u'post成功'
+        data=request.POST
+        ret['result']=data
+
+        return HttpResponse(json.dumps(ret))
+    else:
+        ret = {'code': '500'}
+        ret['message'] = u'post失败!!!'
+        return HttpResponse(json.dumps(ret))
 
 
 

@@ -10,6 +10,6 @@ urlpatterns = [
     path('4/', views.pg4, name="主页"),
     path('5/', views.pg5, name="主页"),
     # path('add/', views.pg5, name="主页"),
-
+    path('getdata/',views.post_getdata,name = "post"),
     path('', views.homepage, name="主页"),
 ]
