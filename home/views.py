@@ -2,6 +2,7 @@ from django.http import HttpResponse
 # Create your views here.
 from django.shortcuts import render,get_object_or_404,render_to_response
 from .models import Products,Category
+from django.views.generic import ListView,DetailView
 # Create your views here.
 def homepage(request):
     content = {'所有类别': Category.objects.all()}
@@ -27,6 +28,23 @@ def pg4(request):
 def pg5(request):
     content = {'所有类别': Products.objects.filter(category = Category.objects.get(pk=5)),"name":Category.objects.get(pk=5).name,"eng_name":Category.objects.get(pk=5).eng_name,}
     return  render(request,'home/detail.html',content)
+
+class Homelist(ListView):
+    model = Category
+    template_name = "home/index4.html"
+    context_object_name = "Category"
+
+
+class Homedetail(DetailView):
+    model = Products
+    template_name = "home/detail.html"
+    context_object_name = "Product"
+
+
+
+
+
+
 
 
 def add(request):

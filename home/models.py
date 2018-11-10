@@ -33,6 +33,7 @@ class Products(models.Model):
     Modtime = models.DateTimeField(auto_now_add=True)
 
     class Meta:
+
         verbose_name = "项目列表"
         verbose_name_plural = verbose_name
 
@@ -43,3 +44,6 @@ class Products(models.Model):
 
     def __unicode__(self):
         return self.name
+
+class AdlItem(models.Model):
+    name = models.CharField(max_length=100,unique=True)
