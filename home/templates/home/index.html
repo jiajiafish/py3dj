@@ -17,6 +17,7 @@
     <div class="container adl-home">
         <div class="row">
 
+
             <!--<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">-->
             <!--开始演示模态框-->
             <!--</button>-->
@@ -49,53 +50,53 @@
                                         <tr>
                                             <th scope="row">1</th>
                                             <td>名称</td>
-                                            <td>AAA</td>
+                                            <td id="adlname">AAA</td>
 
                                         </tr>
                                         <tr>
                                             <th scope="row">2</th>
                                             <td>类型</td>
-                                            <td>Carpet</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>地区</td>
-                                            <td>Global</td>
+                                            <td id="adltype">Carpet</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">3</th>
-                                            <td>结构号</td>
-                                            <td>DNDI95NAP</td>
+                                            <td>地区</td>
+                                            <td id="adlregion">Global</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">4</th>
-                                            <td>颜色代码</td>
-                                            <td>FFF</td>
+                                            <td>结构号</td>
+                                            <td id="adlstruct">DNDI95NAP</td>
                                         </tr>
+                                        {#                                        <tr>#}
+                                        {#                                            <th scope="row">4</th>#}
+                                        {#                                            <td >颜色代码</td>#}
+                                        {#                                            <td>FFF</td>#}
+                                        {#                                        </tr>#}
                                         <tr>
                                             <th scope="row">5</th>
                                             <td>光泽度</td>
-                                            <td>H</td>
+                                            <td id="adlglossy">H</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">6</th>
                                             <td>标准样板号</td>
-                                            <td>C-39</td>
+                                            <td id="adlstand">C-39</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">7</th>
                                             <td>目前在库数</td>
-                                            <td>5</td>
+                                            <td id="adlstock">5</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">8</th>
                                             <td>入库时间</td>
-                                            <td>2016-07-10</td>
+                                            <td id="adlcreate">2016-07-10</td>
                                         </tr>
                                         <tr>
-                                            <th scope="row">8</th>
+                                            <th scope="row">9</th>
                                             <td>到期时间</td>
-                                            <td>2020-06-16</td>
+                                            <td id="adldue">2020-06-16</td>
                                         </tr>
 
 
@@ -119,74 +120,162 @@
             <div class="col-md-12 adl-filter clearfix" id="id-div-slide">
                 <div class="thumbnail">
                     <!--<img src="img/pms_1465366178.11466342!220x220.jpg">-->
-                    <div class="caption">
-                        <div class="col-xs-2"><span class="glyphicon glyphicon-globe"></span> 地区：</div>
-                        <div class="col-xs-10"></div>
-                        <nav aria-label="...">
-                            <label class="checkbox-inline">
-                                <input type="checkbox" id="inlineCheckbox1" value="option1"> Global(全球)
-                            </label>
-                            <label class="checkbox-inline">
-                                <input type="checkbox" id="inlineCheckbox2" value="option2"> Local(本地)
-                            </label>
+                    <form action="/filter/" method="get">
+                        <div class="caption">
+                            <div class="col-xs-2"><span class="glyphicon glyphicon-globe"></span> 地区：</div>
+                            <div class="col-xs-10"></div>
+                            <nav aria-label="...">
+                                {% for region in regions %}
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" name="region" value="{{ region.name }}"
+                                               checked> {{ region.name }}
+                                    </label>
+                                {% endfor %}
 
-                        </nav>
-                    </div>
-                    <div class="caption">
-                        <div class="col-xs-2"><span class="glyphicon glyphicon-th"></span> 类型：</div>
-                        <div class="col-xs-10"></div>
-                        <nav aria-label="...">
+                                {#                            <label class="checkbox-inline">#}
+                                {#                                <input type="checkbox" name="region" value="option1" checked> Global(全球)#}
+                                {#                            </label>#}
+                                {#                            <label class="checkbox-inline">#}
+                                {#                                <input type="checkbox" name="region" id="inlineCheckbox2" value="option2" checked>#}
+                                {#                                Local(本地)#}
+                                {#                            </label>#}
 
-                            <label class="checkbox-inline">
-                                <input type="checkbox" id="inlineCheckbox3" value="option1"> Leather
-                            </label>
-                            <label class="checkbox-inline">
-                                <input type="checkbox" id="inlineCheckbox4" value="option2"> Plastic
-                            </label>
-                            <label class="checkbox-inline">
-                                <input type="checkbox" id="inlineCheckbox5" value="option3"> Weaver
-                            </label>
-                            <label class="checkbox-inline">
-                                <input type="checkbox" id="inlineCheckbox6" value="option4"> Car-Paint
-                            </label>
-                        </nav>
-                    </div>
+                            </nav>
+                        </div>
+                        <div class="caption">
+                            <div class="col-xs-2"><span class="glyphicon glyphicon-th"></span> 类型：</div>
+                            <div class="col-xs-10"></div>
+                            <nav aria-label="...">
+                                {% for type in types %}
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" name="type" value="{{ type.name }}"
+                                               checked> {{ type.name }}
+                                    </label>
+                                {% endfor %}
 
-                    <div class="caption">
-                        <div class="col-xs-2"><span class="glyphicon glyphicon-copyright-mark"></span> 光泽度：</div>
-                        <div class="col-xs-10"></div>
-                        <nav aria-label="...">
-                            <label class="checkbox-inline">
-                                <input type="checkbox" id="inlineCheckbox7" value="option1"> 光泽度1
-                            </label>
-                            <label class="checkbox-inline">
-                                <input type="checkbox" id="inlineCheckbox8" value="option2"> 光泽度2
-                            </label>
-                            <label class="checkbox-inline">
-                                <input type="checkbox" id="inlineCheckbox9" value="option3"> 光泽度3
-                            </label>
-                            <label class="checkbox-inline">
-                                <input type="checkbox" id="inlineCheckbox10" value="option4"> 光泽度4
-                            </label>
+                                {#                            <label class="checkbox-inline">#}
+                                {#                                <input type="checkbox" name="type" id="inlineCheckbox3" value="option1" checked> Leather#}
+                                {#                            </label>#}
+                                {#                            <label class="checkbox-inline">#}
+                                {#                                <input type="checkbox" name="type" id="inlineCheckbox4" value="option2" checked> Plastic#}
+                                {#                            </label>#}
+                                {#                            <label class="checkbox-inline">#}
+                                {#                                <input type="checkbox" name="type" id="inlineCheckbox5" value="option3" checked> Weaver#}
+                                {#                            </label>#}
+                                {#                            <label class="checkbox-inline">#}
+                                {#                                <input type="checkbox" name="type" id="inlineCheckbox6" value="option4" checked>#}
+                                {#                                Car-Paint#}
+                                {#                            </label>#}
+                            </nav>
+                        </div>
 
-                        </nav>
-                    </div>
+                        <div class="caption">
+                            <div class="col-xs-2"><span class="glyphicon glyphicon-copyright-mark"></span> 光泽度：</div>
+                            <div class="col-xs-10"></div>
+                            <nav aria-label="...">
+                                {% for glossy in glossys %}
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" name="glossy" value="{{ glossy.name }}"
+                                               checked> {{ glossy.name }}
+                                    </label>
+                                {% endfor %}
+                            </nav>
+                        </div>
 
-                    <div class="caption">
-                        <div class="col-xs-2"><span class="glyphicon glyphicon-list"></span> 库存：</div>
-                        <div class="col-xs-10"></div>
-                        <nav aria-label="...">
-                            <label class="checkbox-inline">
-                                <input type="checkbox" id="inlineCheckbox11" value="option1"> 有库存
-                            </label>
-                            <label class="checkbox-inline">
-                                <input type="checkbox" id="inlineCheckbox12" value="option2"> 无库存
-                            </label>
+                        <div class="caption">
+                            <div class="col-xs-2"><span class="glyphicon glyphicon-list"></span> 列举库存为空：</div>
+                            <div class="col-xs-10"></div>
+                            <nav aria-label="...">
+                                {% for stock in stocks %}
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" name="stock" value="{{ stock }}" checked> {{ stock }}
+                                    </label>
+                                {% endfor %}
+
+                                {#                                <label class="checkbox-inline">#}
+                                {#                                    <input type="checkbox" name="stock" id="inlineCheckbox11" value="有库存" checked> 有库存#}
+                                {#                                </label>#}
+                                {#                                <label class="checkbox-inline">#}
+                                {#                                    <input type="checkbox" name="stock" id="inlineCheckbox12" value="无库存" checked> 无库存#}
+                                {#                                </label>#}
 
 
-                        </nav>
-                    </div>
+                            </nav>
+                        </div>
+                        <input type="submit" class="btn btn-primary btn-block" onclick="sSubmit()" value="提交选择">
+                    </form>
                 </div>
+                <script>
+
+                    {#                    var SelectFalse = false; //用于判断是否被选择条件#}
+                    function Submit() {
+                        var region = [];
+                        var type = [];
+                        var glossy = [];
+                        var stock = [];
+                        var stockCheckBox = $('input[name = stock]');
+
+                        for (var i = 0; i < stockCheckBox.length; i++) {
+
+                            if (stockCheckBox[i].checked) {
+                                stock.push(stockCheckBox[i].value)
+                            }
+                        }
+                        var typeCheckBox = $('input[name = type]');
+
+                        for (var i = 0; i < typeCheckBox.length; i++) {
+
+                            if (typeCheckBox[i].checked) {
+                                type.push(typeCheckBox[i].value)
+                            }
+                        }
+                        var regionCheckBox = $('input[name = region]');
+
+                        for (var i = 0; i < regionCheckBox.length; i++) {
+
+                            if (regionCheckBox[i].checked) {
+                                region.push(regionCheckBox[i].value)
+                            }
+                        }
+                        var glossyCheckBox = $('input[name = glossy]');
+
+                        for (var i = 0; i < glossyCheckBox.length; i++) {
+
+                            if (glossyCheckBox[i].checked) {
+                                glossy.push(glossyCheckBox[i].value)
+                            }
+                        }
+                        var d = {
+                            'region': region,
+                            'type': type,
+                            'glossy': glossy,
+                            'stock': stock
+
+                        }
+                        $.ajax({
+                            'type': 'post',
+                            'url': 'http://127.0.0.1:8000/filter/',
+                            data: d,
+                            success: function (data) {
+                                var data = JSON.parse(data);
+                                console.log(typeof(data));
+                                console.log(data)
+
+
+                                $.each(data, function (k, v) {
+                                    console.log(v);
+
+                                })
+                                {#                                                        可以循环输出#}
+
+                            }
+                        })
+                        alert("您选择爱好对应的value是：" + region);
+                        alert("您选择爱好对应的value是：" + type);
+                        alert("您选择爱好对应的value是：" + glossy);
+                        alert("您选择爱好对应的value是：" + stock);
+
+                    }</script>
 
 
             </div>
@@ -194,52 +283,55 @@
 
             {% for item in 所有类别 %}
 
-
                 <div class="col-md-3">
                     <div class="thumbnail">
-                        <img src="{{ item.picture.url }}">
+                        <img src="{{ item.picture.url|default:"/media/category/220.png" }}">
                         <div class="caption">
                             <p class="text-center">
                                 {#                    {{ item.adl_region.name|length }}#}
-                                {{ item.due_time|date:"SHORT_DATE_FORMAT" }}
+                                {#                                {{ item.due_time|date:"SHORT_DATE_FORMAT" }}#}
                                 {% if "Global" in item.adl_region.name %}
                                     <span class="glyphicon glyphicon-globe "></span>
                                 {% else %}
                                     <span class="glyphicon glyphicon-home "></span>
                                 {% endif %}
 
-                                {{ item.name }}</p>
+                                {{ item.name|truncatechars:"8" }}</p>
                             <nav aria-label="...">
                                 <ul class="pager ">
                                     <li>
-                                        <button data-toggle="modal" data-target="#myModal" href="#"
+                                        <button id="detail{{ item.id }}" data-toggle="modal" data-target="#myModal"
+                                                href="#"
                                                 class="btn btn-default"><span class="glyphicon glyphicon-list-alt"
                                                                               aria-hidden="true"> </span> 详情
                                         </button>
                                     </li>
                                     <span class="divide-button"> </span>
-                                    {% if item.stock < 1 %}
-                                        <li>
-                                            <button id="{{ item.id }}" href="#" class="btn btn-danger"
-                                                    disabled="disabled">
+
+                                    {% if username %}
+
+
+                                        {% if item.stock < 1 %}
+                                            <li>
+                                                <button id="{{ item.id }}" href="#" class="btn btn-danger"
+                                                        disabled="disabled">
                                                 <span class="glyphicon glyphicon-shopping-cart"
                                                       aria-hidden="true"> </span> 库存空
-                                            </button>
-                                        </li>
-                                    {% else %}
-                                        <li>
-                                            <button id="{{ item.id }}" href="#" class="btn btn-primary adl-borrow">
+                                                </button>
+                                            </li>
+                                        {% else %}
+                                            <li>
+                                                <button id="{{ item.id }}" href="#" class="btn btn-primary adl-borrow">
                                                 <span class="glyphicon glyphicon-shopping-cart"
                                                       aria-hidden="true"> </span> 借阅
-                                            </button>
-                                        </li>
+                                                </button>
+                                            </li>
+                                        {% endif %}
                                     {% endif %}
-
                                     <script>
-
-
                                         $(document).ready(function () {
-                                            $("#{{ item.id }}").click(function () {
+
+                                            $("#detail{{ item.id }}").click(function () {
 
                                                 var d = {'id': {{ item.id }}}
                                                 $.ajax({
@@ -249,10 +341,23 @@
                                                     success: function (data) {
                                                         var data = JSON.parse(data);
                                                         console.log(typeof(data));
+                                                        console.log(data)
+                                                        $("#adlname").text(data.name)
+                                                        $("#adltype").text(data.type)
+                                                        $("#adlregion").text(data.region)
+                                                        $("#adlstruct").text(data.struct)
+                                                        $("#adlglossy").text(data.glossy)
+                                                        $("#adlstand").text(data.standard)
+                                                        $("#adlstock").text(data.stock)
+                                                        $("#adlcreate").text(data.create)
+                                                        $("#adldue").text(data.due)
+
+
                                                         $.each(data, function (k, v) {
                                                             console.log(v);
 
                                                         })
+                                                        {#                                                        可以循环输出#}
 
                                                     }
                                                 })
@@ -268,15 +373,7 @@
                     </div>
                 </div>
             {% endfor %}
-            {##}
-            {#<div class="row">#}
-            {#        <nav aria-label="..." class="detail-table">#}
-            {#            <ul class="pager">#}
-            {#                <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> 上一页</a></li>#}
-            {#                <li class="next"><a href="#">下一页 <span aria-hidden="true">&rarr;</span></a></li>#}
-            {#            </ul>#}
-            {#        </nav>#}
-            {#    </div>#}
+
         </div>
     </div>
 

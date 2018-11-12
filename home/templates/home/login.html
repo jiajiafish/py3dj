@@ -1,0 +1,28 @@
+{% extends "./base.html" %}
+
+
+
+{% block pagecontent %}
+    <div class="container container-small">
+    <h1>登录
+        <small>没有账号？<a href="#">注册</a></small>
+    </h1>
+    <form action="/login/" method="post">
+        <div class="form-group">
+            <label>用户名/手机/邮箱</label>
+            <input type="text" name="username" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>密码</label>
+            <input type="password" name="password" class="form-control">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary btn-block" type="submit">登录</button>
+        </div>
+        <div class="form-group">
+            <a href=mailto:jiaxiaole_2009@163.com>忘记密码？</a>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

@@ -11,5 +11,11 @@ urlpatterns = [
     path('5/', views.pg5, name="主页"),
     # path('add/', views.pg5, name="主页"),
     path('getdata/',views.post_getdata,name = "post"),
+    path('filter/', views.homepagefilter, name="filter"),
+    path('search/', views.search, name="search"),
+    path('login/', views.adl_login, name="login"),
+    path('logout/', views.adl_logout, name="logout"),
+    path('usercenter/', views.user_center, name="user_center"),
+
     path('', views.homepage, name="主页"),
 ]

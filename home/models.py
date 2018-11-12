@@ -93,7 +93,7 @@ class Adl_Item(models.Model):
     adl_standard= models.CharField(max_length=100,default="0")
     stock= models.IntegerField(default=0)
     createtime= models.DateTimeField(auto_now_add=True)
-    picture= models.ImageField(upload_to="category", blank=True)
+    picture= models.ImageField(upload_to="category")
     due_time= models.DateTimeField(blank=False)
     class Meta:
         verbose_name = "Adl色板"
