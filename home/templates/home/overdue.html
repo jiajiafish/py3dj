@@ -1,0 +1,68 @@
+{% extends "./base.html" %}
+
+
+
+{% block pagecontent %}
+
+    <div class="container adl-detail">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="carditems clearfix">
+                    <div class="color-bar-overdue color-bar">
+
+                    </div>
+                    <table class="table detail-table table-hover">
+                        <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>色板型号</th>
+                            <th>到期时间</th>
+                            <th>在库数量</th>
+                            <th>翻新次数</th>
+                            <th>勾选</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for overdue in overdues %}
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>{{ overdue.name }}</td>
+                                <td>2019-05-09</td>
+                                <td>{{ overdue.stock }}</td>
+                                <td>{{ overdue.adl_refreshes|default:"0"}}次</td>
+                                <td><input type="checkbox" name="{{ overdue.id }}"></td>
+                            </tr>
+
+                        {% endfor %}
+
+
+                        </tbody>
+
+                    </table>
+                    <nav aria-label="...">
+                        <ul class="pager ">
+                            <li><a href="#" class="alert-danger"><span class="glyphicon glyphicon-trash"
+                                                                       aria-hidden="true"> </span> 淘汰</a></li>
+                            <span class="divide-button"> </span>
+                            <li><a href="#" class="success" data-toggle="tooltip" data-original-title="tooltip提示"
+                                   title="翻新一次只能一个哦" data-placement="bottom">
+                                <span class="glyphicon glyphicon-retweet" aria-hidden="true"> </span> 翻新</a></li>
+                        </ul>
+                    </nav>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
