@@ -54,7 +54,7 @@ height: 300px;
 
 .adl-detail .row .col-sm-12 .carditems{
     width: 100%;
-    height: 700px;
+    /*min-height: 700px;*/
 }
 
 .adl-userpage .row .col-sm-12 .carditems{

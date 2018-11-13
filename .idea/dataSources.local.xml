@@ -6,8 +6,20 @@
       <introspection-schemas>*:djangoshopping</introspection-schemas>
     </data-source>
     <data-source name="db.sqlite3" uuid="36b0333b-4f5a-4d10-852d-96c3065d4b7b">
-      <database-info product="SQLite" version="3.16.1" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native" />
+      <database-info product="SQLite" version="3.25.1" jdbc-version="2.1" driver-name="SQLite JDBC" driver-version="3.25.1">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <auth-required>false</auth-required>
+      <introspection-schemas>*:main</introspection-schemas>
+    </data-source>
+    <data-source name="db.sqlite3 [2]" uuid="ef1dc838-8951-4610-8f6c-6d2527016682">
+      <database-info product="SQLite" version="3.25.1" jdbc-version="2.1" driver-name="SQLite JDBC" driver-version="3.25.1">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <secret-storage>master_key</secret-storage>
+      <auth-required>false</auth-required>
       <introspection-schemas>*:main</introspection-schemas>
     </data-source>
   </component>

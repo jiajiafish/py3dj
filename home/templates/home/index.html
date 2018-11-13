@@ -153,19 +153,6 @@
                                     </label>
                                 {% endfor %}
 
-                                {#                            <label class="checkbox-inline">#}
-                                {#                                <input type="checkbox" name="type" id="inlineCheckbox3" value="option1" checked> Leather#}
-                                {#                            </label>#}
-                                {#                            <label class="checkbox-inline">#}
-                                {#                                <input type="checkbox" name="type" id="inlineCheckbox4" value="option2" checked> Plastic#}
-                                {#                            </label>#}
-                                {#                            <label class="checkbox-inline">#}
-                                {#                                <input type="checkbox" name="type" id="inlineCheckbox5" value="option3" checked> Weaver#}
-                                {#                            </label>#}
-                                {#                            <label class="checkbox-inline">#}
-                                {#                                <input type="checkbox" name="type" id="inlineCheckbox6" value="option4" checked>#}
-                                {#                                Car-Paint#}
-                                {#                            </label>#}
                             </nav>
                         </div>
 
@@ -306,11 +293,11 @@
                                                                               aria-hidden="true"> </span> 详情
                                         </button>
                                     </li>
-                                    <span class="divide-button"> </span>
+
 
                                     {% if username %}
 
-
+                                        <span class="divide-button"> </span>
                                         {% if item.stock < 1 %}
                                             <li>
                                                 <button id="{{ item.id }}" href="#" class="btn btn-danger"

@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -51,7 +52,7 @@ class Adl_type(models.Model):
     class Meta:
         verbose_name = "ADL种类"
         verbose_name_plural = verbose_name
-        db_table = "ADL种类"
+        db_table = "Adl_type"
     def __str__(self):
         return self.name
 
@@ -65,7 +66,7 @@ class Adl_glossy(models.Model):
     class Meta:
         verbose_name = "光泽度"
         verbose_name_plural = verbose_name
-        db_table = "光泽度"
+        db_table = "Glossy"
     def __str__(self):
         return self.name
 
@@ -78,7 +79,7 @@ class Adl_region(models.Model):
     class Meta:
         verbose_name = "区域"
         verbose_name_plural = verbose_name
-        db_table = "区域"
+        db_table = "region"
     def __str__(self):
         return self.name
     def __unicode__(self):
@@ -92,13 +93,15 @@ class Adl_Item(models.Model):
     glossy_code= models.ForeignKey(Adl_glossy,on_delete=models.CASCADE)
     adl_standard= models.CharField(max_length=100,default="0")
     stock= models.IntegerField(default=0)
+    adl_refresh = models.IntegerField(default=0)
+    adl_reject = models.BooleanField(default=False)
     createtime= models.DateTimeField(auto_now_add=True)
     picture= models.ImageField(upload_to="category")
     due_time= models.DateTimeField(blank=False)
     class Meta:
         verbose_name = "Adl色板"
         verbose_name_plural = verbose_name
-        db_table = "Adl色板"
+        db_table = "Adl_item"
     def __str__(self):
         return self.name
 
@@ -106,4 +109,25 @@ class Adl_Item(models.Model):
         return self.name
 
 
+
+class Adl_borrow(models.Model):
+    start_time = models.DateTimeField(blank=True)
+    end_time = models.DateTimeField(blank=True)
+    counts = models.IntegerField(default=1)
+    check_in_time = models.DateTimeField(blank=True)
+    check_out_time = models.DateTimeField(blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    is_check_out = models.BooleanField(default=False)
+    is_return = models.BooleanField(default=False)
+
+    class Meta:
+        verbose_name = "Adl借阅"
+        verbose_name_plural = verbose_name
+        db_table = "Adl_borrow"
+
+    def __str__(self):
+        return self.name
+
+    def __unicode__(self):
+        return self.name
 

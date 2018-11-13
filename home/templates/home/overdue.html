@@ -27,7 +27,7 @@
                             <tr>
                                 <th scope="row">1</th>
                                 <td>{{ overdue.name }}</td>
-                                <td>2019-05-09</td>
+                                <td>{{ overdue.due_time|date:"SHORT_DATE_FORMAT" }}</td>
                                 <td>{{ overdue.stock }}</td>
                                 <td>{{ overdue.adl_refreshes|default:"0"}}次</td>
                                 <td><input type="checkbox" name="{{ overdue.id }}"></td>

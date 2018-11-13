@@ -1,6 +1,11 @@
 from django.http import HttpResponse,HttpResponseRedirect
 import json
 import datetime
+import os
+import time
+from PIL import ImageFile
+from home.settings import dev
+from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 from django.shortcuts import render,get_object_or_404,render_to_response
@@ -65,9 +70,59 @@ def adl_logout(request):
 @login_required(login_url='/login/')
 def user_center(request):
     user = request.user
-    print(user.has_perm('home.add_adl_item'))
+    if user.has_perm('home.add_adl_item'):
+        content = {}
+        content['username'] = request.user.username
+        return render(request,'home/managerpage.html',content)
+    else:
+        content = {}
+        content['username'] = request.user.username
+        return render(request,'home/artpage.html',content)
 
 
+@login_required(login_url='/login/')
+def borrow(request):
+    user = request.user
+    if user.has_perm('home.add_adl_item'):
+        content = {}
+        content['username'] = request.user.username
+        return render(request,'home/borrow.html',content)
+    else:
+        content = {}
+        content['username'] = request.user.username
+        return render(request,'home/artpage.html',content)
+
+
+@login_required(login_url='/login/')
+def overdue(request):
+    user = request.user
+    if user.has_perm('home.add_adl_item'):
+        content = {'overdues': Adl_Item.objects.filter(due_time__lt=now),
+                   "now": datetime.datetime.now()}
+        content['username'] = request.user.username
+        return render(request,'home/overdue.html',content)
+    else:
+        content = {}
+        content['username'] = request.user.username
+        return render(request,'home/artpage.html',content)
+
+
+
+@login_required(login_url='/login/')
+def newcome(request):
+    user = request.user
+    if user.has_perm('home.add_adl_item'):
+        content = {'overdues': Adl_Item.objects.filter(due_time__lt=now),
+                   "now": datetime.datetime.now()}
+        content['username'] = request.user.username
+        content['regions'] = Adl_region.objects.all()
+        content['types'] = Adl_type.objects.all()
+        content['glossys'] = Adl_glossy.objects.all()
+        return render(request,'home/newcome.html',content)
+    else:
+        content = {}
+        content['username'] = request.user.username
+        return render(request,'home/artpage.html',content)
 
 @csrf_exempt
 def search(request):
@@ -127,11 +182,9 @@ def homepagefilter(request):
 
     # content = {'所有类别': Adl_Item.objects.filter(due_time__gte = now).filter(stock__in=stock).filter(adl_region__in=region).filter(glossy_code__in=glossy).filter(adl_type__in=type),"now":datetime.datetime.now()}
 
-    content = {'所有类别': Adl_Item.objects.filter(due_time__gte = now).filter(stock__gt=0),"now":datetime.datetime.now()}
     # return  render(request,'home/index4.html',content)
 
 
-    return  render(request, 'home/index.html', content)
 
 
 
@@ -214,7 +267,56 @@ def post_getdata(request):
 
 
 
+def _upload(file, path):
+    """
+    图片上传函数
+    """
+    if file:
+        _n = "%d" % (time.time() * 1000)
+        _f = time.strftime("%Y%m%d", time.localtime())
 
+        file_name = _f + _n+".jpg"
+        path_file = os.path.join(path, file_name)
+        parser = ImageFile.Parser()
+        for chunk in file.chunks():
+            parser.feed(chunk)
+        img = parser.close()
+        try:
+            if img.mode != "RGB":
+                img = img.convert("RGB")
+            img.save(path_file, 'jpeg', quality=100)
+
+        except:
+            return None
+        return file_name
+    return None
+
+
+@csrf_exempt
+def uploadify_script(request):
+    print("111")
+    """
+    通过bootstrap fileinput 上传图片
+    """
+    result = {"data": []}
+    path = os.path.join(dev.UPLOADFILES)
+    print(path)
+    try:
+        response = HttpResponse()
+        response['Content-Type'] = "text/javascript"
+        ret = -1
+        file = request.FILES.get("file_data", None)
+        if file:
+            imgurl = _upload(file, path)
+            if not imgurl:
+                ret = 1
+            ret = 0
+            result["imgurl"] = imgurl
+            # result.update(code_msg(ret))
+        return JsonResponse(result)
+
+    except Exception:
+        return JsonResponse(result)
 
 def add(request):
     a = request.GET['a']
